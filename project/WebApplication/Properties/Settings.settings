@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Es.Udc.DotNet.PracticaMaD.Web.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PracticaMaD_defaultSize" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="PracticaMaD_applicationURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/PracticaMaD</Value>
+    </Setting>
+    <Setting Name="PracticaMaD_defaultCount" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="PracticaMaD_googleClientId" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">807829170013-vuns9kqd61dc5noshepjn0008rsbrja0.apps.googleusercontent.com</Value>
+    </Setting>
+    <Setting Name="PracticaMaD_googleClientSecret" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">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</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,138 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PracticaMaD.Master.cs"
+    Inherits="Es.Udc.DotNet.PracticaMaD.Web.PracticaMaD" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head id="Head1" runat="server">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder_HeadSources" runat="server">
+    <title>PracticaMaD</title>
+    <link href="/Css/Styles.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="/Content/bootstrap.min.css"/>
+
+    </asp:ContentPlaceHolder>
+    <script src="/Scripts/jquery-3.7.1.min.js"></script>
+    <script src="/Scripts/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <!-- Window. -->
+    <div id="window">
+        <!-- Page title. -->
+        <span id="menuExplanation">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder_MenuExplanation" runat="server">
+            </asp:ContentPlaceHolder>
+        </span>
+        <!-- Menu. -->
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder_MenuLinks" runat="server">
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #df00ff">
+                <a id="lnkPhotogram" runat="server" class="navbar-brand ms-3" href="#">
+                <img src="/icons/camara.png" alt="" width="" height="24" class="d-inline-block align-text-top"> Photogram </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <asp:HyperLink ID="lnkAuthenticate" runat="server"
+                                           NavigateUrl="~/Pages/User/Authentication.aspx"
+                                           meta:resourcekey="lnkAuthenticate" CssClass="nav-link" >
+                                <span class="sr-only">(current)</span>
+                            </asp:HyperLink>
+                        </li>
+
+                         <li class="nav-item">
+                            <asp:HyperLink ID="lnkUploadImgLink" runat="server"
+                                                NavigateUrl="~/Pages/Post/UploadPost.aspx"
+                                                meta:resourcekey="lnkUploadImgLink"
+                                                CssClass="nav-link">
+                                        <asp:Label ID="lnkUploadImgLb" runat="server" Text="Label" meta:resourcekey="lnkUploadImg"></asp:Label>
+                                    </asp:HyperLink>
+                                </li>
+
+                        <li class="nav-item">
+                            <asp:HyperLink ID="lnkSearch" runat="server"
+                                           NavigateUrl="~/Pages/Post/PostSearch.aspx"
+                                           meta:resourcekey="lnkSearch"
+                                               CssClass="nav-link"/>
+                        </li>
+                        <li class="nav-item dropdown" id="usrDropdown" runat="server"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <asp:Label ID="lblUser" runat="server" Text="User" meta:resourcekey="lblUser" ></asp:Label>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <asp:HyperLink ID="lnkUpdate" runat="server"
+                                                       NavigateUrl="~/Pages/User/UpdateUserProfile.aspx"
+                                                       meta:resourcekey="lnkUpdate" 
+                                                       CssClass="dropdown-item"/>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="lnkMyProfile" runat="server"
+                                                      NavigateUrl="~/Pages/Feed/ViewProfile.aspx"
+                                                      meta:resourcekey="lnkMyProfile"
+                                                      CssClass="dropdown-item"/>
+                                </li>
+                                
+                                <li>
+                                    <hr class="dropdown-divider"></li>
+                                <li>
+                                    <asp:HyperLink ID="lnkLogout" runat="server"
+                                                       NavigateUrl="~/Pages/User/Logout.aspx"
+                                                       meta:resourcekey="lnkLogout" 
+                                                       CssClass="dropdown-item "
+                                                       ForeColor="Red" />
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <span class="btBack">
+                        <asp:HyperLink ID="btBack" runat="server" Text="<%$ Resources: Common, btBack %>" CssClass="btn btn-light btn-outline-dark" NavigateUrl="javascript:history.go(-1);"></asp:HyperLink>
+                    </span>
+                </div>
+            </nav>
+        </asp:ContentPlaceHolder>
+        
+        <div id="pageTitle">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder_header" runat="server">
+                <asp:Localize ID="lclPageTitle" runat="server" meta:resourcekey="lclPageTitle" />
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <span id="menuWelcome">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder_MenuWelcome" runat="server">
+                <asp:Label ID="lblWelcome" runat="server" meta:resourcekey="lblWelcome" />
+            </asp:ContentPlaceHolder>
+        </span>
+
+
+        <!-- Body content. -->
+        <div id="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder_BodyContent" runat="server" />
+        </div>
+
+    </div>
+    <!-- End of HTML body. -->
+</body>
+    
+<div id="tagCloud" align="center">
+    <span id="spTagCloud">
+
+        <asp:ListView ID="lsvTagCloud" runat="server"  >
+            <ItemTemplate >
+                <asp:HyperLink CssClass="lnkTag" Text='<%# Eval("tagName") %>' runat="server"
+                               NavigateUrl='<%# "~/Pages/Post/PostsByKeywordAndCat.aspx?tagId=" + Eval("tagId") %>'
+                               style='<%# "font-size:" + GetFontSize((int)Eval("timesUsed")) + "; color:" + GetNextColor() %>' />
+
+            </ItemTemplate>
+        </asp:ListView>
+    </span>
+</div>
+<footer>
+    <!-- Footer. -->
+        <div id="footer">
+            <asp:Localize ID="lclFooter" runat="server" meta:resourcekey="lclFooter" />
+        </div>
+</footer>
+<!-- End of HTML. -->
+</html>

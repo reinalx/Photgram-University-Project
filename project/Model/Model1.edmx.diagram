@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="21b6d75e3f084f57869190665642ba9c" Name="Diagram1" ZoomLevel="83">
+        <EntityTypeShape EntityType="practicamadModel.Category" Width="1.5" PointX="3.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="practicamadModel.Comment" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="practicamadModel.Follow" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="practicamadModel.LikePub" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="practicamadModel.Post" Width="1.5" PointX="6" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="practicamadModel.UserProfile" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="practicamadModel.FK_Post_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="practicamadModel.FK_Comment_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="practicamadModel.FK_Comment_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="practicamadModel.FK_Follow_UserProfiel2" ManuallyRouted="false" />
+        <AssociationConnector Association="practicamadModel.FK_Follow_UserProfile1" ManuallyRouted="false" />
+        <AssociationConnector Association="practicamadModel.FK_LikePub_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="practicamadModel.FK_LikePub_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="practicamadModel.FK_Post_UserProfile" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="practicamadModel.Tag" Width="1.5" PointX="8.25" PointY="7" />
+        <AssociationConnector Association="practicamadModel.PostTag" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
